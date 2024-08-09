@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import logging
 import pandas as pd
 import os
@@ -16,7 +17,7 @@ def read_expected_responses(csv_file_path):
     return expected_responses
 
 # Initialize WebDriver
-service = Service('C:/Users/Mohammad/.wdm/drivers/chromedriver/win64/127.0.6533.72/chromedriver.exe')
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 driver.maximize_window()
