@@ -112,8 +112,11 @@ def select_option_and_click_send(driver, option_name):
         driver.save_screenshot('error_screenshot.png')
         raise
 
-def send_message_by_selecting(driver, optionName, expectedResponse):
-    click_last_button_by_text(driver, "Please select")
+def send_message_by_selecting(driver, optionName, expectedResponse, lang = None):
+    if lang != None:
+        click_last_button_by_text(driver, "يرجى الاختيار")
+    else:
+        click_last_button_by_text(driver, "Please select")
     time.sleep(5)
     select_option_and_click_send(driver, optionName)
     time.sleep(10)

@@ -7,6 +7,7 @@ import os
 from datetime import datetime
 import explore_our_product_flow
 import home_services
+import explore_our_product_flow_ar
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -17,7 +18,7 @@ def read_expected_responses(csv_file_path):
     return expected_responses
 
 # Initialize WebDriver
-service = Service(ChromeDriverManager().install())
+service = Service('C:/Users/Mohammad/.wdm/drivers/chromedriver/win64/127.0.6533.72/chromedriver.exe')
 driver = webdriver.Chrome(service=service)
 
 driver.maximize_window()
@@ -29,12 +30,12 @@ driver.get(whatsapp_link)
 
 # Home services flow
 # Path to the CSV file containing expected responses
-csv_file_path = 'C:\\Users\\Mohammad\\Desktop\\whatsapp\\home_services_expected_response.csv'  # Update with the actual path to your CSV file
+csv_file_path = 'C:\\Users\\Mohammad\\Desktop\\whatsapp\\explore_our_produect_expected_responses_ar.csv'  # Update with the actual path to your CSV file
 
 # Read expected responses from the CSV file
 home_services_expected_responses = read_expected_responses(csv_file_path)
 
-home_services.run_flow(driver, home_services_expected_responses)
+explore_our_product_flow_ar.run_flow(driver, home_services_expected_responses)
 
 
 driver.close()

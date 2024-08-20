@@ -95,7 +95,7 @@ def run_flow(driver, expected_responses):
         save_test_result(test9, writer)
 
         # test 10: Amazon Prime
-        go_home_services_list(driver)
+        go_to_streaming_list(driver)
         test10 = utils.send_message_by_selecting(driver, "Amazon Prime", expected_responses[7])
         save_test_result(test10, writer)
 
